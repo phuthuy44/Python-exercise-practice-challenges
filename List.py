@@ -66,7 +66,7 @@ print ("a.index(6)", a.index(6)) #4
 print("a.index(2) = ",a.index(2)) #0
 print("a.index(2,1) = ",a.index(2,1)) #3
 print("a.index(2,4) = ",a.index(2,4)) #5
-print("a.index(2,7) = ",a.index(2,7)) #Traceback (most recent call last):
+##print("a.index(2,7) = ",a.index(2,7)) #Traceback (most recent call last):
 
 '''Them mot phan tu hoac mot list vao list: khi them se thay doi list hoac tao list moi'''
 #Them mot phan tu dung: list.append(item)
@@ -141,7 +141,155 @@ print(a)
 a[0],a[1]=a[1],a[0]
 print("After swap of a[0] and a[1]:")
 print(a) # a = [3,2,5,7]
+'''Vong lap fỏ otrong list'''
+#Vong lap dung phan tu trong list: for item in list
+a = [2,3,5,7]
+print("Here are the items in a:")
+for pt in a:
+    print(pt) # 2,3,5,7
+#Vong lap dung chi so trong list: for index in range(len(list))
+a = [2,3,5,7]
+print("Here are the items in a with their indexs:")
+for i in range(len(a)):
+    print("a[",i,"]=",a[i]) # a[0]=2, a[1]=3, a[2]=5, a[3]=7
+#Duyet nguoc list dung chi so 
+a = [2,3,5,7]
+print("And here are the items in reverse:")
+for index in range(len(a)):
+     revIndex = len(a)-1-index
+     print("a[",revIndex,"]=",a[revIndex]) # a[3]=7, a[2]=5, a[1]=3, a[0]=2
+#Duyet nguoc list dung ham reversed()
+a = [2,3,5,7]
+print("And here are the items in reversed:")
+for item in reversed(a):
+     print(item) # 7, 5, 3, 2
+print(a) # a = [2,3,5,7]
+'''So sanh list'''
+#create some list 
+a = [2,3,5,3,7]
+b = [2,3,5,3,7] #same a
+c = [2,3,5,3,8] #different in last element
+d =[2,3,5] #prefix of a
+print("a =",a) # a= [2,3,5,3,7]
+print("b =",b) # b= [2,3,5,3,7]
+print("c =",c) # c= [2,3,5,3,8]
+print("d =",d) # d= [2,3,5]
+print("--------------------")
+print("a == b =",a == b) # True
+print("a == c =",a == c) # False
+print("a != b =",a != b) # False
+print("a!= c =",a!= c) # True
+print("--------------------")
+print("a < c",(a<c)) #True
+print("a<d",(a<d)) #False
+'''Coppy list voi List Aliasses'''
+import copy
+#create a list
+a = [2,3]
+#try to copy it
+b = a # Error! Not a copy, but an alias
+c = copy.copy(a)
+print("At first....")
+print("a =",a) # a= [2,3]
+print("b =",b) # b= [2,3]
+print("c =",c) # c= [2,3]
+#Now modify a[0]
+a[0] = 42
+print("But affter a[0] = 42")
+print("a =",a) # a= [42,3]
+print("b =",b) # b= [42,3]
+print("c =",c) # c= [2,3]
+'''Cac cach sao chep list'''
+a = [2,3]
+b = copy.copy(a)
+c = a[:]
+d = a + []
+e = list(a)
+f = sorted(a)
+a[0] = 42
+print(a,b,c,d,e,f) #[42,3][2,3][2,3][2,3][2,3][2,3]
+'''Sap xep tren list'''
+#sap xep va thay doi list dung list.sort(): iterable.sort(key =None,reverse = False)
+a = [7,2,5,3,5,11,7]
+b = list(a) #copy of a
+print("At first a =",a) # a= [7,2,5,3,5,11,7]
+a.sort()
+print("After sorting a =",a) # a= [2,3,5,5,7,7,11]
+print("At first b =",b) # b= [7,2,5,3,5,11,7]
+b.sort(reverse=True)
+print("After b:sort(reverse=True) =",b) # b= [11,7,7,5,5,3,2]
+'''Sap xep nhung khong thay doi list(tao ra list moi) dung sorted(list):sorted(iterable,key=None,reverse=False)'''
+a = [7,2,5,3,5,11,7]
+print("At first a =",a) # a= [7,2,5,3,5,11,7]
+b = sorted(a)
+c = sorted(a,reverse=True)
+print("After b = sorted(a)") 
+print("a =",a) # a= [7,2,5,3,5,11,7]
+print("b =",b) # b= [2,3,5,5,7,7,11]
+print("c =",c) # c= [11,7,7,5,5,3,2]
+'''Sap xep voi key function'''
+#Dung abs()
+a = [10,2,-5,8,-3,7,1]
+print(sorted(a)) # [-5,-3,1,2,7,8,10]
+print(sorted(a,key = abs)) #[1,2,-3,-5,7,8,10]
+'''Sort dua vao chieu dai cua chuoi'''
+a = ['a','ab','aab','ac','abccc']
+print(sorted(a)) # ['a','ab','aab','ac','abccc']
+def mylensort(a):
+     return len(a)
+print(sorted(a,key = mylensort)) #['a','ac','ab','aab','abccc']
+'''List va function: list duoc dung nhu input cua mot ham'''
+def countOdds(a):
+     count = 0
+     for item in a:
+          if(item % 2 == 1):
+               count += 1 
+     return count
+print(countOdds([2,3,7,8,21,23,24]))
+'''Dung ham de thay doi cac gia tri cua list'''
+def fill(a,value):
+     for i in range(len(a)):
+          a[i]== value
+a =[1,2,3,4,5]
+print("At first a =", a) # a= [1,2,3,4,5]
+fill(a,42)
+print("After filling a =", a) # a= [42,42,42,42,42]
+'''List comprehension:cach tao list moi ngan gon- la mot bieu thuc di kem voi lenh for duoc dat trong cap dau ngoac vuong'''
+cub3 = [3**x for x in range(9)]
+#output:[1,3,9,27,81,243,729,2187,6561]
+print(cub3)
+#or 
+cub3 =[]
+for x in range(9):
+     cub3.append(3**x)
+print(cub3)
 
+cub3 =[3**x for x in range(9) if x >4]
+#output:[243,729,2187,6561]
+print(cub3)
+sole=[x for x in range(18) if x%2==1]
+#output:[1,3,5,7,9,11,13,15,17]
+print(sole)
+noilist = [x +y for x in ['Ngon ngu','lap trinh'] for y in['Python','c++']]
+#Output:['Ngon ngu python', 'lap trinh c++','Laptrinh Python,'Ngon ngu C++]
+print(noilist)
+'''converting Betwwen List and Stirngs'''
+#use list(s) to convert a string to a list of characters
+a = list ("wahoo!")
+print(a) # ['w','a', 'h', '', 'o', '!']
+a = "How are you?".split("")
+print(a) #['How', 'are', 'you', '?']
+a = ["parsley"," ","is"," ","fun"]
+s = "".join(a)
+print(s) #parsley is fun
+
+
+
+
+
+
+
+    
 
 
 
