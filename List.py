@@ -283,8 +283,90 @@ a = ["parsley"," ","is"," ","fun"]
 s = "".join(a)
 print(s) #parsley is fun
 
-
-
+'''2D list'''
+#cap phat tinh 
+#tao 2D list voi cac gia tri co dinh 
+a = [[1,2,3],[4,5,6],[7,8,9]]
+print(a) #[[1,2,3],[4,5,6],[7,8,9]]
+#wrong:cannot use *
+rows = 3
+cols = 2
+a = [[0]*cols]*rows #Error
+#chi tao duy nhat mot dong(unique row), phan con lai la aliases !
+print("This seems ok. At first:")
+print("a =",a) # a = [[0,0],[0,0],[0,0]]
+a[0][0]=42
+print("But see what happens after a[0][0] = 42")
+print("a=",a) # a = [[42,0],[42,0],[42,0]]
+#mo rong mot dong 
+rows = 3
+cols = 2
+a = []
+for row in range(rows):
+     a += [[0]*cols]
+print("This is ok. At first:")
+print("a=",a) # a = [0,0],[0,0],[0,0]
+a[0][0]= 42
+print("And now see what happens after a[0][0]=42")
+print("a=",a) # a = [[42,0],[0,0],[0,0]
+# dung list comprehension
+rows = 3
+cols = 2
+a =[([0]*cols) for row in range(rows)]
+print("This is ok. At first:")
+print("a=",a) # a = [[0,0],[0,0],[0,0]]
+a[0][0]=42
+print("And now see what happens after a[0][0]=42")
+print("a=",a) # a = [[42,0],[0,0],[0,0]]
+#tim so chieu cua 2D list : dung len()
+a = [[2,3,5],[1,4,7]]
+print("a =",a) # a = [[2,3,5],[1,4,7]]
+rows = len(a)
+cols = len(a[0])
+print("rows = ",rows) # rows = 2
+print("cols = ",cols) # cols = 3
+#vong lap
+a = [[2,3,5],[1,4,7]]
+print("Before a =",a) # a = [[2,3,5],[1,4,7]]
+rows = len(a)
+cols = len(a[0])
+for row in range(rows):
+     for col in range(cols):
+          a[row, col] += 1
+print("After a =",a) # a = [[3,4,6],[2,5,8]]
+'''Truy cap 2D list bang dong hoac cot'''
+#truy cap mot dong
+#alias(not a copy!); no new list created
+a =[[1,2,3],[4,5,6]]
+row = 1
+rowList = a[row]
+print(rowList) # [4,5,6]
+rowList[0] = 100
+print(rowList) # [100,5,6]
+print(a) # [[1,2,3],[100,5,6]]
+#truy cap mot cot 
+#copy(not an alias!); new list created
+a = [[1,2,3],[4,5,6]]
+col = 1
+colList = []
+for i in range(len(a)): # co the dung list comprehension => colList = a[i][col] for i in range(len(a))
+     colList += [a[i][col]]
+print(colList) # [2,5]
+'''So luong phan tu moi dong co the khac nhau'''
+#2D list do not have to be rectangular 
+a =[
+     [1,2,3],
+     [4,5],
+     [6],
+     [7,8,9,10]
+]
+rows = len(a)
+for row in range(rows):
+     col = len(a[row])#now cols depend on each row
+     print("Row",row,"has",cols,"columns",end="")
+     for col in range(cols):
+          print(a[row][col],end=" ")
+     print()
 
 
 
