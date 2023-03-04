@@ -362,7 +362,7 @@ a =[
 ]
 rows = len(a)
 for row in range(rows):
-     col = len(a[row])#now cols depend on each row
+     col = len(a[row])#now cols depend on each row 
      print("Row",row,"has",cols,"columns",end="")
      for col in range(cols):
           print(a[row][col],end=" ")
