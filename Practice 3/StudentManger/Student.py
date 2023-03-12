@@ -33,15 +33,19 @@ class Student:
          self.DTB = DTB
      def get_DTB(self):
          return self.DTB
-     def show(self):
+     def show(self,listSV):
           print("========================Information of Student==============================")
           #print(" ID "," NAME "," BIRTH OF DATE "," ADDRESS "," PHONE "," DTB ")
           #print(" "+ self.id + " " + self.name + " " + self.BirthOfDate +" "+ self.address + " " + self.phone + " " + self.DTB)
-          print(f"ID: {self.id}")
+          '''print(f"ID: {self.id}")
           print(f"Name: {self.name}")
           print(f"BirthOfDate: {self.BirthOfDate}")
           print(f"Address: {self.address}")
           print(f"Phone: {self.phone}")
-          print(f"DTB: {self.DTB}")
-
+          print(f"DTB: {self.DTB}")'''
+          print("{:<8} {:18} {:<8} {:18} {:<18} {:<8}".format("ID","Name","BirthOfDate","Address","Phone","DTB"))
+          if listSV.__len__() > 0:
+              for i in listSV:
+                  print("{:<8} {:18} {:<8} {:<18} {:<18} {:<8}".format(i.id,i.name,i.BirthOfDate, i.address,i.phone,i.DTB))
+          print("\n")
           

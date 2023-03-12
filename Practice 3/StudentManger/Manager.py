@@ -28,7 +28,7 @@ while True:
                DTB = input('Enter student DTB: ')
                sv = Student(id, name,BirthOfDate,address,phone,DTB)
                studentlist.append(sv)
-               sv.show()
+               sv.show(studentlist)
           elif select == 2:
                print("You had selected to update information of student")
                id = input('Enter student id you need to update: ')
@@ -61,7 +61,7 @@ while True:
                                         i.set_DTB(input('Enter student DTB: '))
                               else:
                                    print("You must enter a number! Please try again")
-                         i.show()
+                         i.show(studentlist)
                     elif i.get_id() == False:
                          print('Student have {} not found!'.format(id))
           elif select == 3:
@@ -78,12 +78,12 @@ while True:
                else :
                     print(f'\nThere has {len(studentlist)} student in the system')
                     for i in studentlist:
-                         i.show()
+                         i.show(studentlist)
           elif select == 5:
                id = input('Enter student id you need to watch: ')
                for i in studentlist:
                     if i.get_id() == id:
-                         i.show()
+                         i.show(studentlist)
                          continue
           elif select == 6:
                while True:
@@ -102,14 +102,14 @@ while True:
                               name = input('Enter student name you need to search: ')
                               for i in studentlist:
                                    if i.get_Name() == name :
-                                        i.show()
+                                        i.show(studentlist)
                                    elif i.get_Name() == False:
                                         print('Student have name is {} not found!'.format(name))
                          if choice == 2:
                               id = input('Enter student id you need to search: ')
                               for i in studentlist:
                                    if i.get_id() == id:
-                                        i.show()
+                                        i.show(studentlist)
                                    elif i.get_id() == False:
                                         print('Student have id is {} not found!'.format(id))
                     else:
