@@ -13,7 +13,7 @@ print("\n")
 #Cau 3:
 print("========Cau 3========")
 d = {'b':200,'a':100, 'c':1}
-d["b"] = -200
+d["b"] = -d["b"]
 print("Thay the gia tri cua khoa b thanh so am tuong ung :",d)
 d["e"] = 500
 print("Them mot khoa 'e' co gia tri 500 vao tu dien :",d)

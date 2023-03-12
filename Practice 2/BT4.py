@@ -2,9 +2,7 @@
 #Cau 1:
 print("========Cau 1========")
 def cau1():
-     s = set()
-     for x in range(0,201):
-        s.add(x)
+     s = set(range(0,200))
      print("Print all element form 0 to 200:",s)
 cau1()
 print("\n")
@@ -57,8 +55,9 @@ def cau4():
      s = set()
      for value in d.values():
           s.add(value)
+     print("Print all different values:")
      for value in s:
-          print("Print all different values : ",value , end =" ")
+          print(value , end =" ")
 cau4()
 print("\n")
 #Cau 5
