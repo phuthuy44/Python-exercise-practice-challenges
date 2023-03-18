@@ -22,8 +22,7 @@ class Student(object):
           s = "Student name: {}\n".format(self.name)
           s += "Exam Scores: {}\n".format(self.scorelist)
           s = "Averaged Score: {}\n".format(self.getAveraged())
-          return s
-     
+          return s    
 st = Student("Amed", 5)
 #st.getName()
 print(st.getName())
